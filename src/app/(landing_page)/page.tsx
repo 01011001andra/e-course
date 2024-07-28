@@ -1,0 +1,18 @@
+import React from "react";
+import Navigation from "./components/Navigation";
+import Hero from "./(hero)";
+import AboutUs from "./(about us)";
+
+const LandingPage = () => {
+  return (
+    <div className="min-h-screen h-full ">
+      <Navigation />
+      <Hero />
+      <AboutUs />
+      <div className="min-h-screen"></div>
+      <div className="min-h-screen"></div>
+    </div>
+  );
+};
+
+export default LandingPage;

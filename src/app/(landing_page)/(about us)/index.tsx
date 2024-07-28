@@ -1,0 +1,38 @@
+import { ButtonGlobal } from "@/app/components";
+import Image from "next/image";
+import React from "react";
+
+const AboutUs = () => {
+  return (
+    <div className="container px-4 lg:px-0 flex gap-8 flex-col md:flex-row">
+      <div className="w-full lg:w-1/2">
+        <Image
+          alt="About US"
+          src={
+            "https://plus.unsplash.com/premium_photo-1682787494977-d013bb5a8773?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          }
+          width={500}
+          height={500}
+          className="w-full  h-full md:h-full object-cover object-center hover:object-top transition-all duration-500 rounded-2xl"
+        />
+      </div>
+      <div className="w-full lg:w-1/2 flex gap-4 md:gap-8 flex-col">
+        <h2 className="font-bold text-xl md:text-2xl xl:text-[40px] md:leading-[40px] lg:leading-[50px]">
+          Tukang Koding helps you Become Experienced
+        </h2>
+        <p className="font-medium text-[#230F0F] text-base md:text-lg lg:text-xl ">
+          Owlearn provides e-learning solutions for companies, universities and
+          individual professionals. It allows users to create courses, and
+          provides an integrated learning management system. Its offerings
+          include digital course tools, study materials, IT infrastructure and
+          other operations.
+        </p>
+        <div>
+          <ButtonGlobal fill>Become a Member</ButtonGlobal>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default AboutUs;
