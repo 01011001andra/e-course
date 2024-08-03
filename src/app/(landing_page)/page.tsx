@@ -3,16 +3,20 @@ import Navigation from "./components/Navigation";
 import Hero from "./(hero)";
 import AboutUs from "./(about us)";
 import Courses from "./(courses)";
+import ContactUs from "./(contact us)";
+import Review from "./(review)";
+import Footer from "./components/Footer";
 
 const LandingPage = () => {
   return (
-    <div className="min-h-screen h-full ">
+    <div className="min-h-screen h-full">
       <Navigation />
       <Hero />
       <AboutUs />
       <Courses />
-      <div className="min-h-screen"></div>
-      <div className="min-h-screen"></div>
+      <ContactUs />
+      <Review />
+      <Footer />
     </div>
   );
 };

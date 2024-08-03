@@ -3,16 +3,19 @@ import BoxReveal from "@/components/BoxReveal";
 import Image from "next/image";
 import React from "react";
 import { MarqueeDemo } from "./components/MarqueeDemo";
+import SparklesText from "@/components/Sparkles";
 
 const AboutUs = () => {
   return (
     <>
       <div className="container p-4 flex items-center flex-col md:flex-row">
         <BoxReveal boxColor={"#db2777"} duration={0.5}>
-          <h2 className="font-bold text-xl md:text-2xl xl:text-[40px] md:leading-[40px] lg:leading-[50px] text-start">
-            What Our Students Say
-          </h2>
+          <SparklesText
+            text="Our Mentors"
+            className="font-bold text-xl md:text-2xl xl:text-[40px] md:leading-[40px] lg:leading-[50px] text-start"
+          />
         </BoxReveal>
+
         <MarqueeDemo />
       </div>
       <div className="container px-4 lg:px-0 flex gap-8 flex-col md:flex-row">
@@ -29,11 +32,11 @@ const AboutUs = () => {
         </div>
         <div className="w-full lg:w-1/2 flex gap-4 md:gap-8 flex-col">
           <BoxReveal boxColor={"#db2777"} duration={0.5}>
-            <h2 className="font-bold text-xl md:text-2xl xl:text-[40px] md:leading-[40px] lg:leading-[50px]">
-              Tukang Koding helps you Become Experienced
-            </h2>
+            <SparklesText
+              text="Tukang Koding helps you Become Experienced"
+              className="font-bold text-xl md:text-2xl xl:text-[40px] md:leading-[40px] lg:leading-[50px] text-start"
+            />
           </BoxReveal>
-
           <BoxReveal boxColor={"#db2777"} duration={0.3}>
             <p className="font-medium text-[#230F0F] text-base md:text-lg lg:text-xl ">
               Owlearn provides e-learning solutions for companies, universities

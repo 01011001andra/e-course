@@ -13,7 +13,7 @@ const StaticNav = () => {
       <div className="flex gap-2 items-center">
         <Image
           alt="logo"
-          src="/images/logo.webp"
+          src="/images/logo.png"
           width={50}
           height={50}
           className=""
