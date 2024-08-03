@@ -7,7 +7,7 @@ import { MarqueeDemo } from "./components/MarqueeDemo";
 const AboutUs = () => {
   return (
     <>
-      <div className="container px-4 flex items-center flex-col md:flex-row">
+      <div className="container p-4 flex items-center flex-col md:flex-row">
         <BoxReveal boxColor={"#db2777"} duration={0.5}>
           <h2 className="font-bold text-xl md:text-2xl xl:text-[40px] md:leading-[40px] lg:leading-[50px] text-start">
             What Our Students Say

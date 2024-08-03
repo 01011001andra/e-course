@@ -78,7 +78,7 @@ const ReviewCard = ({
 
 export function MarqueeDemo() {
   return (
-    <div className="relative py-5 pt-12 flex w-full flex-col items-center justify-center overflow-hidden rounded-lg  bg-background">
+    <div className="relative py-5 flex w-full flex-col items-center justify-center overflow-hidden rounded-lg  bg-background">
       <Marquee reverse pauseOnHover className="[--duration:20s]">
         {secondRow.map((review) => (
           <ReviewCard key={review.username} {...review} />
