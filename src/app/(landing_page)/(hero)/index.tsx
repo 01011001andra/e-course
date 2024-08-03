@@ -3,16 +3,25 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import { ButtonGlobal } from "@/app/components";
+import DotPattern from "@/components/DotPattern";
+import { cn } from "@/lib/utils";
+import BoxReveal from "@/components/BoxReveal";
+import Meteors from "@/components/Meteors";
 
 const Hero = () => {
   const constraintsRef1 = React.useRef(null);
 
   return (
     <div
-      className="container flex flex-col lg:flex-row-reverse min-h-[87vh] md:min-h-[60vh] xl:min-h-[85vh] "
+      className="container flex flex-col lg:flex-row-reverse min-h-[87vh] md:min-h-[60vh] xl:min-h-[80vh] "
       draggable={false}
       onDragStart={(e) => e.preventDefault()}
     >
+      <DotPattern
+        className={cn(
+          "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]"
+        )}
+      />
       <div
         className="w-full lg:w-1/2 items-center justify-center flex "
         draggable={false}
@@ -138,28 +147,20 @@ const Hero = () => {
         </div>
       </div>
       <div className="w-full lg:w-1/2 flex gap-4 md:gap-6 lg:gap-8 flex-col justify-center md:items-center xl:items-start px-4 lg:px-0">
-        <div className="flex flex-col">
-          <h1 className="text-2xl md:text-3xl lg:text-[68px] font-bold lg:leading-[80px]">
-            Learn Any Skills to advance your{" "}
-            <span className="relative whitespace-nowrap">
-              career path
-              <Image
-                loading="lazy"
-                src={"/images/hero_vector.png"}
-                alt="hero"
-                width={1000}
-                height={1000}
-                className="select-none pointer-events-none absolute left-0"
-                draggable={false}
-                onDragStart={(e) => e.preventDefault()}
-              />
-            </span>
-          </h1>
-        </div>
-        <p className="text-base lg:text-xl max-w-lg">
-          Want to improve your work skills? You need to study harder with the
-          help of a great mentor to improve your performance at work
-        </p>
+        <BoxReveal boxColor={"#db2777"} duration={0.2}>
+          <div className="flex flex-col">
+            <Meteors number={20} />
+            <h1 className="text-2xl md:text-3xl lg:text-[68px] font-bold lg:leading-[80px] z-50">
+              Learn Any Skills to advance your career path
+            </h1>
+          </div>
+        </BoxReveal>
+        <BoxReveal boxColor={"#db2777"} duration={0.4}>
+          <p className="text-base lg:text-xl max-w-lg">
+            Want to improve your work skills? You need to study harder with the
+            help of a great mentor to improve your performance at work
+          </p>
+        </BoxReveal>
         <div className="flex flex-col md:flex-row-reverse gap-6 md:items-center">
           <div className="flex gap-6 items-center">
             <div className="flex ">
@@ -253,9 +254,12 @@ const Hero = () => {
                   />
                 </svg>
               </div>
-              <small className="font-semibold text-xs">
-                (4,5/5 dari 10k Alumni)
-              </small>
+
+              <BoxReveal boxColor={"#db2777"} duration={0.5}>
+                <small className="font-semibold text-xs">
+                  (5/5 dari 10k Alumni)
+                </small>
+              </BoxReveal>
             </div>
           </div>
           <div>

@@ -9,10 +9,6 @@ export const navigation: Navigation[] = [
     href: "/",
   },
   {
-    name: "Bootcamp",
-    href: "/#bootcamp",
-  },
-  {
     name: "Events",
     href: "/#events",
   },
