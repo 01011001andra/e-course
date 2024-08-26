@@ -1,52 +1,25 @@
 "use client";
 
 import React from "react";
-import VideoPlayer from "./components/VideoPlayer";
-import AccordionList from "./components/AccordionList";
-import TabsCommentAndFile from "./components/TabsCommentAndFile";
-import TabsOviewAndInstructor from "./components/TabsOviewAndInstructor";
-import CourseDetail from "./components/CourseDetail";
 import BreadcrumbDetail from "./components/BreadcrumbDetail";
+import Slug0 from "./Default";
+import Slug1 from "./Slug0";
+import Default from "./Default";
 
 interface Props {
   params: {
-    slug: string;
+    slug: string[];
   };
 }
 
 const CoursesPage: React.FC<Props> = ({ params }) => {
+
   return (
     <div className="p-4 flex flex-col gap-4">
-      <BreadcrumbDetail />
+      <BreadcrumbDetail params={params} />
 
-      {/* content */}
-      <div className="grid grid-cols-12 gap-5">
-        {/* 1 */}
-        <div className="col-span-12 w-full lg:col-span-3 hidden lg:flex">
-          <AccordionList />
-        </div>
-
-        {/* 2 */}
-        <div className="col-span-12 lg:col-span-6 flex flex-col ">
-          <div className="h-72 sm:h-96 lg:h-[300px] xl:h-[500px]">
-            <VideoPlayer />
-          </div>
-          {/* 1 */}
-          <div className="col-span-12 lg:col-span-3 flex lg:hidden mt-4">
-            <AccordionList />
-          </div>
-          <div className="w-full mt-16 lg:mt-20 ">
-            <TabsCommentAndFile />
-          </div>
-        </div>
-
-        {/* 3 */}
-        <div className="col-span-3 hidden lg:flex flex-col gap-4 ">
-          <CourseDetail />
-
-          <TabsOviewAndInstructor />
-        </div>
-      </div>
+      {!params.slug && <Default />}
+      {params.slug && params?.slug[0] && <Slug1 />}
     </div>
   );
 };
