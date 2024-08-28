@@ -1,9 +1,16 @@
 import React from "react";
+import BreadcrumbDetail from "./components/BreadcrumbDetail";
 
-const Default = () => {
+interface Props {
+  params: {
+    slug: string[];
+  };
+}
+
+const Default: React.FC<Props> = ({ params }) => {
   return (
     <div>
-      <h1>Default</h1>
+      {/* <BreadcrumbDetail params={params} /> */}
     </div>
   );
 };
