@@ -2,7 +2,7 @@ import CoursesPage from "@/view/user/courses/page";
 import React from "react";
 interface Props {
   params: {
-    slug: string;
+    slug: string[];
   };
 }
 

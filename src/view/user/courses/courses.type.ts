@@ -3,10 +3,11 @@ export interface Root {
   slug: string;
   title: string;
   description: string;
-  category: string[];
+  video_overview: string;
+  tags: string[];
   lecture_type: string;
   level: string;
-  duration: string;
+  duration: number;
   instructor: Instructor;
   stages: Stages[];
 }
@@ -16,7 +17,11 @@ export interface Instructor {
   picture: string;
   position: string;
   company: string;
-  courses: string[];
+  courses: {
+    id: string;
+    name: string;
+    slug: string;
+  }[];
 }
 
 export interface Stages {
@@ -34,7 +39,7 @@ export interface Detail {
   is_watched: boolean;
   is_playing: boolean;
   is_locked: boolean;
-  duration: string;
+  duration: number;
   video: string;
   comments: Comment[];
   files: File[];
@@ -61,4 +66,5 @@ export interface DetailReply {
 export interface File {
   title: string;
   url: string;
+  type: "pdf" | "ppt";
 }

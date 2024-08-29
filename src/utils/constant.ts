@@ -3,18 +3,25 @@ export const DetailCourse = [
     id: "1124142",
     slug: "mastering-python-for-data-science",
     title: "Mastering Python for Data Science",
+    video_overview: "https://www.youtube.com/watch?v=rfscVS0vtbw",
     description:
       "Become proficient in Python programming and its applications in data science. This course covers data manipulation, analysis, visualization, and machine learning using Python libraries such as Pandas, NumPy, Matplotlib, and Scikit-learn.",
-    category: ["Python", "Data Science", "Machine Learning", "Backend"],
+    tags: ["Python", "Data Science", "Machine Learning", "Backend"],
     lecture_type: "pre-recorded",
     level: "Intermediate",
-    duration: "20 Hours",
+    duration: 93295,
     instructor: {
       name: "Dr. Sarah Johnson",
-      picture: "",
+      picture: "https://github.com/shadcn.png",
       position: "Data Scientist",
       company: "Data Insights Corp",
-      courses: ["Mastering Python for Data Science", "Advanced Data Analysis"],
+      courses: [
+        {
+          id: "1124142",
+          name: "Mastering Python for Data Science",
+          slug: "mastering-python-for-data-science",
+        },
+      ],
     },
     stages: [
       {
@@ -30,13 +37,37 @@ export const DetailCourse = [
             is_watched: true,
             is_playing: false,
             is_locked: false,
-            duration: "10:00",
+            duration: 600,
             video: "https://www.youtube.com/watch?v=rfscVS0vtbw",
             comments: [
               {
                 id: "2353",
-                name: "James",
-                text: "Great introduction! Very clear and easy to follow.",
+                name: "Andrew",
+                text: "Hey guys, im having trouble understanding how to add function in javascript. any tips? thanks...",
+                likes: 15,
+                replies: 1,
+                detail_replies: [
+                  {
+                    id: "2352533",
+                    name: "Emily",
+                    text: `Sure thing, Andrey! You can go to the Add "menu in Blender and select" Curve to add different types of curves.`,
+                    likes: 6,
+                    createdAt: "2024-08-26T08:30:00Z",
+                  },
+                  {
+                    id: "2352533",
+                    name: "James",
+                    text: `Also, make sure youre in "Object Mode" before adding curves-`,
+                    likes: 8,
+                    createdAt: "2024-08-26T08:30:00Z",
+                  },
+                ],
+                createdAt: "2024-08-26T08:30:00Z",
+              },
+              {
+                id: "53",
+                name: "Jokowi",
+                text: "Hey guys, im having trouble understanding how to add function in javascript. any tips? thanks...",
                 likes: 15,
                 replies: 1,
                 detail_replies: [],
@@ -46,7 +77,13 @@ export const DetailCourse = [
             files: [
               {
                 title: "Python Basics Slide Deck",
+                url: "https://www.example.com/python-basics.ppt",
+                type: "ppt",
+              },
+              {
+                title: "Python Basics Deck Test",
                 url: "https://www.example.com/python-basics.pdf",
+                type: "pdf",
               },
             ],
           },
@@ -57,7 +94,7 @@ export const DetailCourse = [
             is_watched: true,
             is_playing: false,
             is_locked: false,
-            duration: "12:00",
+            duration: 450,
             video: "https://www.youtube.com/watch?v=egw2H4SnQXU",
             comments: [
               {
@@ -92,7 +129,7 @@ export const DetailCourse = [
             is_watched: true,
             is_playing: false,
             is_locked: false,
-            duration: "15:00",
+            duration: 534,
             video: "https://www.youtube.com/watch?v=HfbcYLtI4zc",
             comments: [
               {
@@ -126,7 +163,7 @@ export const DetailCourse = [
             is_watched: true,
             is_playing: false,
             is_locked: false,
-            duration: "20:00",
+            duration: 744,
             video: "https://www.youtube.com/watch?v=ZDa-Z5JzLYM",
             comments: [
               {
@@ -153,7 +190,7 @@ export const DetailCourse = [
             is_watched: false,
             is_playing: true,
             is_locked: false,
-            duration: "18:00",
+            duration: 922,
             video: "https://www.youtube.com/watch?v=NIWwJbo-9_8",
             comments: [
               {
@@ -188,7 +225,7 @@ export const DetailCourse = [
             is_watched: false,
             is_playing: false,
             is_locked: true,
-            duration: "22:00",
+            duration: 321,
             video: "https://www.youtube.com/watch?v=U3weB_Mt90c",
             comments: [],
             files: [
@@ -208,7 +245,7 @@ export const DetailCourse = [
   //   title: "React and Redux for Modern Web Development",
   //   description:
   //     "Build dynamic web applications using React and Redux. This course covers the fundamentals of React, component-based architecture, state management with Redux, and deploying web apps to the cloud.",
-  //   category: ["React", "Redux", "Frontend", "Fullstack"],
+  //   tags: ["React", "Redux", "Frontend", "Fullstack"],
   //   lecture_type: "pre-recorded",
   //   level: "Intermediate",
   //   duration: "20 Hours",
@@ -327,7 +364,7 @@ export const DetailCourse = [
   //   title: "Data Structures and Algorithms in Java",
   //   description:
   //     "Learn essential data structures and algorithms in Java. This course is designed for developers who want to enhance their problem-solving skills and prepare for coding interviews.",
-  //   category: ["Java", "Algorithms", "Data Structures", "Backend"],
+  //   tags: ["Java", "Algorithms", "Data Structures", "Backend"],
   //   lecture_type: "pre-recorded",
   //   level: "Intermediate",
   //   duration: "20 Hours",
@@ -438,7 +475,7 @@ export const DetailCourse = [
   //   title: "Fullstack Web Development with Node.js and Express",
   //   description:
   //     "Learn how to build scalable web applications using Node.js and Express. This course covers backend development, RESTful API design, database integration, and deployment.",
-  //   category: ["Node.js", "Express", "Backend", "Fullstack"],
+  //   tags: ["Node.js", "Express", "Backend", "Fullstack"],
   //   lecture_type: "pre-recorded",
   //   level: "Intermediate",
   //   duration: "20 Hours",
@@ -553,7 +590,7 @@ export const DetailCourse = [
   //   title: "Advanced CSS and Sass: Flexbox, Grid, Animations",
   //   description:
   //     "Master modern CSS and Sass to create stunning websites. This course covers Flexbox, CSS Grid, animations, and responsive design. You'll learn how to build visually appealing and mobile-friendly web pages.",
-  //   category: ["CSS", "Sass", "Frontend", "Design"],
+  //   tags: ["CSS", "Sass", "Frontend", "Design"],
   //   lecture_type: "pre-recorded",
   //   level: "Intermediate",
   //   duration: "20 Hours",

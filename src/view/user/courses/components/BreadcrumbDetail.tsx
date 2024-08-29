@@ -43,7 +43,7 @@ const BreadcrumbDetail: React.FC<Props> = ({ params }) => {
               <BreadcrumbItem key={index}>
                 <Link
                   href={`/${param}`}
-                  className="text-xs lg:text-base flex items-center gap-1 capitalize"
+                  className="text-xs lg:text-base flex items-center gap-1 capitalize hover:text-pink-600"
                 >
                   <Icon icon={"hugeicons:course"} />
                   {param}
@@ -56,7 +56,10 @@ const BreadcrumbDetail: React.FC<Props> = ({ params }) => {
               <React.Fragment key={index}>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem key={param}>
-                  <Link href={``} className="text-xs lg:text-base">
+                  <Link
+                    href={`/${pageName}/${params.slug[0]}`}
+                    className="text-xs lg:text-base hover:text-pink-600"
+                  >
                     {DetailCourse.find((item) => item.slug === param)?.title}
                   </Link>
                 </BreadcrumbItem>
@@ -65,33 +68,37 @@ const BreadcrumbDetail: React.FC<Props> = ({ params }) => {
           }
 
           if (index === 2) {
-            return (
-              <React.Fragment key={index}>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem key={param}>
-                  <Link
-                    // href={`/${pageName}/${params?.slug[0]}/${params?.slug[1]}`}
-                    href={``}
-                    className="text-xs lg:text-base"
-                  >
-                    {/* {DetailCourse.find((item) => item.slug === param)?.title} */}
-                    {
-                      DetailCourse.find(
-                        (item) => item.slug === params?.slug[0]
-                      )?.stages.find((stage) => stage.slug === params?.slug[1])
-                        ?.title
-                    }
-                  </Link>
-                </BreadcrumbItem>
-              </React.Fragment>
-            );
+            return null;
+            // return (
+            //   <React.Fragment key={index}>
+            //     <BreadcrumbSeparator />
+            //     <BreadcrumbItem key={param}>
+            //       <Link
+            //         // href={`/${pageName}/${params?.slug[0]}/${params?.slug[1]}`}
+            //         href={``}
+            //         className="text-xs lg:text-base"
+            //       >
+            //         {/* {DetailCourse.find((item) => item.slug === param)?.title} */}
+            //         {
+            //           DetailCourse.find(
+            //             (item) => item.slug === params?.slug[0]
+            //           )?.stages.find((stage) => stage.slug === params?.slug[1])
+            //             ?.title
+            //         }
+            //       </Link>
+            //     </BreadcrumbItem>
+            //   </React.Fragment>
+            // );
           }
 
           return (
             <React.Fragment key={index}>
               <BreadcrumbSeparator />
               <BreadcrumbItem key={param}>
-                <Link href={``} className="text-xs lg:text-base">
+                <Link
+                  href={``}
+                  className="text-xs lg:text-base hover:text-pink-600"
+                >
                   {/* {DetailCourse.find((item) => item.slug === param)?.title} */}
                   {
                     DetailCourse.find((item) => item.slug === params?.slug[0])

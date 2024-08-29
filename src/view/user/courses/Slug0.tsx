@@ -1,14 +1,10 @@
-// "use server";
-
-import React from "react";
-import VideoPlayer from "./components/VideoPlayer";
-import AccordionList from "./components/AccordionList";
-import TabsCommentAndFile from "./components/TabsCommentAndFile";
-import TabsOviewAndInstructor from "./components/TabsOviewAndInstructor";
-import CourseDetail from "./components/CourseDetail";
 import { DetailCourse } from "@/utils/constant";
+import React from "react";
+import { Root } from "./courses.type";
+import { secondToTime, secondToTimeText } from "@/utils/helper";
+import VideoPlayer from "../components/VideoPlayer";
 import { notFound } from "next/navigation";
-import { Root, Stages } from "./courses.type";
+import PulsatingButton from "@/components/PulsatingButton";
 
 interface Props {
   params: {
@@ -20,41 +16,67 @@ const Slug0: React.FC<Props> = ({ params }) => {
   const course = DetailCourse.find(
     (item) => item.slug === params.slug[0]
   ) as Root;
-
   if (!course) return notFound();
-  if (
-    DetailCourse?.find((item) => item.slug === params?.slug[0])
-      ?.stages.find((stage) => stage.slug === params?.slug[1])
-      ?.details.find((detail) => detail.slug === params?.slug[2])?.is_locked
-  )
-    return notFound();
   return (
-    <div className="grid grid-cols-12 gap-5">
-      {/* 1 */}
-      <div className="col-span-12 w-full lg:col-span-3 hidden lg:flex">
-        <AccordionList stages={course.stages} />
-      </div>
+    <div className="prose xl:prose-xl mx-auto relative">
+      <PulsatingButton
+        className="fixed bottom-10 right-10 bg-pink-600 border hover:bg-pink-700 transition-all duration-500"
+        pulseColor="#dc497b"
+      >
+        Beli course ini!
+      </PulsatingButton>
 
-      {/* 2 */}
-      <div className="col-span-12 lg:col-span-6 flex flex-col ">
-        <div className="h-72 sm:h-96 lg:h-[300px] xl:h-[500px]">
-          <VideoPlayer course={course} />
-        </div>
-        {/* 1 */}
-        <div className="col-span-12 lg:col-span-3 flex lg:hidden mt-4">
-          <AccordionList stages={course.stages} />
-        </div>
-        <div className="w-full mt-16 lg:mt-20 ">
-          <TabsCommentAndFile />
-        </div>
+      <h1>{course.title}</h1>
+      <span>
+        Course by{" "}
+        <span className="text-pink-600 font-bold">
+          {course.instructor.name}
+        </span>
+      </span>
+      <div className="h-52 lg:h-96">
+        <VideoPlayer video_overview={course.video_overview} />
       </div>
-
-      {/* 3 */}
-      <div className="col-span-3 hidden lg:flex flex-col gap-4 ">
-        <CourseDetail />
-
-        <TabsOviewAndInstructor />
-      </div>
+      <table>
+        <tbody>
+          <tr>
+            <th>Duration</th>
+            <td>: {secondToTimeText(course.duration)}</td>
+          </tr>
+          <tr>
+            <th>Level</th>
+            <td>: {course.level}</td>
+          </tr>
+          <tr>
+            <th>Lecture Type</th>
+            <td>: {course.lecture_type}</td>
+          </tr>
+        </tbody>
+      </table>
+      <PulsatingButton
+        className="bg-pink-600 w-full border hover:bg-pink-700 transition-all duration-500"
+        pulseColor="#dc497b"
+      >
+        Beli course ini!
+      </PulsatingButton>
+      <p>{course.description}</p>
+      <h4>
+        This course will have {course.stages.length}{" "}
+        {course.stages.length > 1 ? `stages` : "stage"} :
+      </h4>
+      <ol>
+        {course.stages.map((stage) => (
+          <li key={stage.slug}>
+            {stage.title}
+            <ul>
+              {stage.details.map((detail) => (
+                <li key={detail.slug}>
+                  {detail.title} - {secondToTime(detail.duration)}
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ol>
     </div>
   );
 };

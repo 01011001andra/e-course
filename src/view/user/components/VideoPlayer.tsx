@@ -2,9 +2,8 @@
 
 import React from "react";
 import ReactPlayer from "react-player/lazy";
-import { Detail } from "../courses.type";
 
-const VideoPlayer = ({ course }: { course: Detail }) => {
+const VideoPlayer = ({ video_overview }: { video_overview: string }) => {
   const [domLoaded, setDomLoaded] = React.useState(false);
   // console.log(course.sta)
   React.useEffect(() => {
@@ -19,7 +18,7 @@ const VideoPlayer = ({ course }: { course: Detail }) => {
           }
           config={{ file: { attributes: { controlsList: "nodownload" } } }}
           // url="/videos/test.mkv"
-          url={course.video}
+          url={video_overview}
           width={"100%"}
           height={"100%"}
           controls

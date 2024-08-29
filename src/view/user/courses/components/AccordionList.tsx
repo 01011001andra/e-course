@@ -12,6 +12,7 @@ import React from "react";
 import { Detail, Stages } from "../courses.type";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { secondToTime } from "@/utils/helper";
 
 interface Props {
   stages: Stages[];
@@ -73,7 +74,9 @@ const DetailCard = ({
             >
               {detail.title}
             </Link>
-            <span className="font-thin text-gray-400">{detail.duration}</span>
+            <span className="font-thin text-gray-400">
+              {secondToTime(detail.duration)}
+            </span>
           </div>
         </div>
       </div>
@@ -92,7 +95,9 @@ const DetailCard = ({
         >
           {detail.title}
         </Link>
-        <span className="font-thin text-gray-400">{detail.duration}</span>
+        <span className="font-thin text-gray-400">
+          {secondToTime(detail.duration)}
+        </span>
       </div>
     </div>
   );
