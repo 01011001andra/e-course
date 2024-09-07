@@ -5,11 +5,12 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/Dialog";
+} from "@/components/ui/dialog";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import React from "react";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
+import Link from "next/link";
 
 interface Props {
   isMobile?: boolean;
@@ -59,14 +60,18 @@ const LoginContent = ({
       ) : (
         contentMode === "login" && (
           <div className="flex flex-col gap-3">
-            <div className="bg-pink-600 hover:bg-pink-500 cursor-pointer p-2 md:p-3 flex gap-4 items-center rounded-2xl justify-center">
-              <Icon
-                icon={"flat-color-icons:google"}
-                className="bg-white rounded-lg p-1"
-                fontSize={30}
-              />
-              <span className=" text-white font-bold">Log in with Google</span>
-            </div>
+            <Link href={"/courses"}>
+              <div className="bg-pink-600 hover:bg-pink-500 cursor-pointer p-2 md:p-3 flex gap-4 items-center rounded-2xl justify-center">
+                <Icon
+                  icon={"flat-color-icons:google"}
+                  className="bg-white rounded-lg p-1"
+                  fontSize={30}
+                />
+                <span className=" text-white font-bold">
+                  Log in with Google
+                </span>
+              </div>
+            </Link>
             <div className="grid gap-2 grid-cols-2">
               <div className="p-2 hover:border-black cursor-pointer md:p-3 border shadow-lg rounded-2xl flex items-center justify-center">
                 <Icon
@@ -158,14 +163,16 @@ const SignUpContent = ({
 
       {contentMode === "register" ? (
         <div className="flex flex-col gap-3">
-          <div className="bg-pink-600 hover:bg-pink-500 cursor-pointer p-2 md:p-3 flex gap-4 items-center rounded-2xl justify-center">
-            <Icon
-              icon={"flat-color-icons:google"}
-              className="bg-white rounded-lg p-1"
-              fontSize={30}
-            />
-            <span className=" text-white font-bold">Sign up with Google</span>
-          </div>
+          <Link href={"/courses"}>
+            <div className="bg-pink-600 hover:bg-pink-500 cursor-pointer p-2 md:p-3 flex gap-4 items-center rounded-2xl justify-center">
+              <Icon
+                icon={"flat-color-icons:google"}
+                className="bg-white rounded-lg p-1"
+                fontSize={30}
+              />
+              <span className=" text-white font-bold">Sign up with Google</span>
+            </div>
+          </Link>
           <div className="grid gap-2 grid-cols-2">
             <div className="p-2 hover:border-black cursor-pointer md:p-3 border shadow-lg rounded-2xl flex items-center justify-center">
               <Icon

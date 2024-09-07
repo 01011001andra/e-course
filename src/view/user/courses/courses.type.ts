@@ -2,6 +2,8 @@ export interface Root {
   id: string;
   slug: string;
   title: string;
+  price: number;
+  discount: number;
   description: string;
   video_overview: string;
   tags: string[];

@@ -1,7 +1,12 @@
 import { DetailCourse } from "@/utils/constant";
 import React from "react";
 import { Root } from "./courses.type";
-import { secondToTime, secondToTimeText } from "@/utils/helper";
+import {
+  afterDiscount,
+  numberToRupiah,
+  secondToTime,
+  secondToTimeText,
+} from "@/utils/helper";
 import VideoPlayer from "../components/VideoPlayer";
 import { notFound } from "next/navigation";
 import PulsatingButton from "@/components/PulsatingButton";
@@ -20,15 +25,14 @@ const Slug0: React.FC<Props> = ({ params }) => {
   return (
     <div className="prose xl:prose-xl mx-auto relative">
       <PulsatingButton
-        className="fixed bottom-10 right-10 bg-pink-600 border hover:bg-pink-700 transition-all duration-500"
+        className="fixed bottom-10 z-50 right-10 bg-pink-600 border hover:bg-pink-700 transition-all duration-500"
         pulseColor="#dc497b"
       >
         Beli course ini!
       </PulsatingButton>
-
       <h1>{course.title}</h1>
       <span>
-        Course by{" "}
+        Course oleh{" "}
         <span className="text-pink-600 font-bold">
           {course.instructor.name}
         </span>
@@ -39,16 +43,21 @@ const Slug0: React.FC<Props> = ({ params }) => {
       <table>
         <tbody>
           <tr>
-            <th>Duration</th>
+            <th>Harga</th>
+            <td>
+              : {numberToRupiah(afterDiscount(course.price, course.discount))}{" "}
+              <small className="line-through italic">
+                {numberToRupiah(course.price)}
+              </small>
+            </td>
+          </tr>
+          <tr>
+            <th>Durasi</th>
             <td>: {secondToTimeText(course.duration)}</td>
           </tr>
           <tr>
             <th>Level</th>
             <td>: {course.level}</td>
-          </tr>
-          <tr>
-            <th>Lecture Type</th>
-            <td>: {course.lecture_type}</td>
           </tr>
         </tbody>
       </table>
@@ -56,13 +65,10 @@ const Slug0: React.FC<Props> = ({ params }) => {
         className="bg-pink-600 w-full border hover:bg-pink-700 transition-all duration-500"
         pulseColor="#dc497b"
       >
-        Beli course ini!
+        Beli course {course.title}
       </PulsatingButton>
       <p>{course.description}</p>
-      <h4>
-        This course will have {course.stages.length}{" "}
-        {course.stages.length > 1 ? `stages` : "stage"} :
-      </h4>
+      <h4>Course ini memiliki {course.stages.length} bagian :</h4>
       <ol>
         {course.stages.map((stage) => (
           <li key={stage.slug}>

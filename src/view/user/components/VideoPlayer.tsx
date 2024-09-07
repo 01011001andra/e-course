@@ -3,7 +3,13 @@
 import React from "react";
 import ReactPlayer from "react-player/lazy";
 
-const VideoPlayer = ({ video_overview }: { video_overview: string }) => {
+const VideoPlayer = ({
+  video_overview,
+  is_card,
+}: {
+  video_overview: string;
+  is_card?: boolean;
+}) => {
   const [domLoaded, setDomLoaded] = React.useState(false);
   // console.log(course.sta)
   React.useEffect(() => {
@@ -17,9 +23,10 @@ const VideoPlayer = ({ video_overview }: { video_overview: string }) => {
             e.preventDefault()
           }
           config={{ file: { attributes: { controlsList: "nodownload" } } }}
-          // url="/videos/test.mkv"
+        
           url={video_overview}
           width={"100%"}
+          style={{ borderRadius: "10px" }}
           height={"100%"}
           controls
         />

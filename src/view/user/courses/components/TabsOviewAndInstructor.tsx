@@ -118,7 +118,7 @@ const TabsOviewAndInstructor = ({ course }: { course: Root }) => {
           </div>
         )}
         {tabMode === "instructor" && (
-          <div className="p-8 flex flex-col gap-4 w-full border rounded-full  items-center justify-center">
+          <div className="p-8 flex flex-col gap-4 w-full border rounded-xl  items-center justify-center">
             <Avatar className="cursor-pointer hover:border-black border scale-150">
               <AvatarImage src={course.instructor.picture} alt="@shadcn" />
               <AvatarFallback>CN</AvatarFallback>

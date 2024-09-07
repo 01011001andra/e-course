@@ -29,6 +29,8 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { CircleUser, Menu, Package2, Search } from "lucide-react";
+import { CommandDialogDemo } from "./CommandDialogDemo";
+import { DetailCourse } from "@/utils/constant";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -69,9 +71,34 @@ const components: { title: string; href: string; description: string }[] = [
 ];
 
 const NavigationUser = () => {
+  const [open, setOpen] = React.useState(false);
+  let detailCourse = DetailCourse.map((item) => {
+    return {
+      id: item.id,
+      title: item.title,
+      description: item.description,
+      slug: item.slug,
+    };
+  }).slice(0, 5);
+  detailCourse.push({
+    id: "more",
+    title: "Show all ➡️",
+    description: "Find more courses here",
+    slug: "",
+  });
+  // console.log([
+  //   ...detailCourse,
+  //   {
+  //     id: "more",
+  //     title: "more",
+  //     description: "more courses here",
+  //     slug: "",
+  //   },
+  // ]);
+
   return (
     <>
-      <div className="w-full h-24 items-center justify-center shadow-md hidden lg:flex">
+      <div className="w-full  h-24 items-center justify-center shadow-md hidden lg:flex">
         <div className="w-full  px-4 flex justify-between items-center">
           <div className="flex gap-4">
             <div className="flex gap-2 items-center">
@@ -95,11 +122,11 @@ const NavigationUser = () => {
                   <NavigationMenuTrigger>Courses</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                      {components.map((component) => (
+                      {detailCourse.map((component) => (
                         <ListItem
                           key={component.title}
                           title={component.title}
-                          href={component.href}
+                          href={`/courses/${component.slug}`}
                         >
                           {component.description}
                         </ListItem>
@@ -162,9 +189,16 @@ const NavigationUser = () => {
                 icon={"material-symbols:search"}
                 className="absolute left-3 h-5 w-5 text-gray-400"
               />
+              <p className="text-sm text-gray-400 absolute right-5 ">
+                Press{" "}
+                <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+                  <span className="text-xs">⌘</span>K
+                </kbd>
+              </p>
               <Input
-                className="rounded-full w-72 max-w-xs pl-10"
+                className="rounded-full w-72 max-w-xs pl-10 cursor-pointer hover:border-pink-600"
                 placeholder="Search"
+                onClick={() => setOpen(true)}
               />
             </div>
             <DropdownMenu>
@@ -185,9 +219,11 @@ const NavigationUser = () => {
                   Edit Profile
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="cursor-pointer">
-                  Logout
-                </DropdownMenuItem>
+                <Link href={"/"}>
+                  <DropdownMenuItem className="cursor-pointer">
+                    Logout
+                  </DropdownMenuItem>
+                </Link>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
@@ -231,10 +267,12 @@ const NavigationUser = () => {
           <form className="ml-auto flex-1 sm:flex-initial">
             <div className="relative">
               <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+
               <Input
                 type="search"
-                placeholder="Search products..."
-                className="pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px]"
+                placeholder="Search..."
+                className="pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px] cursor-pointer"
+                onClick={() => setOpen(true)}
               />
             </div>
           </form>
@@ -261,6 +299,7 @@ const NavigationUser = () => {
           </DropdownMenu>
         </div>
       </header>
+      <CommandDialogDemo open={open} setOpen={setOpen} />
     </>
   );
 };
@@ -281,7 +320,7 @@ const ListItem = React.forwardRef<
           {...props}
         >
           <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <p className="line-clamp-1 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
         </a>

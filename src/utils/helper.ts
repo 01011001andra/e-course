@@ -16,8 +16,19 @@ export const secondToTimeText = (seconds: number) => {
   const s = Math.floor(seconds % 60);
 
   if (h === 0) {
-    return `${m}m ${s}s`;
+    return `${m}m ${s}d`;
   }
 
-  return `${h}h ${m}m`;
+  return `${h}j ${m}m`;
+};
+
+export const numberToRupiah = (number: number) => {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+  }).format(number);
+};
+
+export const afterDiscount = (price: number, discount: number) => {
+  return price - (price * discount) / 100;
 };
