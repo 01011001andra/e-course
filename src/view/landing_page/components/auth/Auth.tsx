@@ -1,3 +1,8 @@
+import { Icon } from "@iconify/react/dist/iconify.js";
+import React from "react";
+import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
+import Link from "next/link";
 import {
   Dialog,
   DialogContent,
@@ -6,11 +11,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Icon } from "@iconify/react/dist/iconify.js";
-import React from "react";
-import LoginForm from "./LoginForm";
-import RegisterForm from "./RegisterForm";
-import Link from "next/link";
 
 interface Props {
   isMobile?: boolean;
