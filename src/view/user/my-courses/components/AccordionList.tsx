@@ -9,7 +9,7 @@ import {
 import { Progress } from "@/components/ui/progress";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import React from "react";
-import { Detail, Stages } from "../courses.type";
+import { Detail, Stages } from "../../courses/courses.type";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { secondToTime } from "@/utils/helper";

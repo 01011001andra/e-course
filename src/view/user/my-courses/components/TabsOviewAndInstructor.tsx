@@ -2,7 +2,7 @@
 
 import { Icon } from "@iconify/react/dist/iconify.js";
 import React from "react";
-import { Root } from "../courses.type";
+import { Root } from "../../courses/courses.type";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Tooltip,
@@ -146,7 +146,7 @@ const TabsOviewAndInstructor = ({ course }: { course: Root }) => {
                     <div className="flex gap-1" key={course.id}>
                       <span>{index + 1}. </span>
                       <Link
-                        href={`/course/${course.slug}`}
+                        href={`/courses/${course.slug}`}
                         className="text-sm max-w-xs underline hover:text-pink-600"
                       >
                         {course.name}

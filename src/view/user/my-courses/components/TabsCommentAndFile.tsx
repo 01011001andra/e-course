@@ -3,7 +3,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import React from "react";
-import { Detail } from "../courses.type";
+import { Detail } from "../../courses/courses.type";
 import moment from "moment";
 import Link from "next/link";
 

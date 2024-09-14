@@ -72,7 +72,23 @@ const components: { title: string; href: string; description: string }[] = [
 
 const NavigationUser = () => {
   const [open, setOpen] = React.useState(false);
-  let detailCourse = DetailCourse.map((item) => {
+  let allMyCourse = DetailCourse.map((item) => {
+    return {
+      id: item.id,
+      title: item.title,
+      description: item.description,
+      slug: item.slug,
+    };
+  }).slice(0, 3);
+  const [myCourses, setMyCourses] = React.useState([
+    {
+      id: "",
+      title: "",
+      description: "",
+      slug: "",
+    },
+  ]);
+  let courses = DetailCourse.map((item) => {
     return {
       id: item.id,
       title: item.title,
@@ -80,22 +96,17 @@ const NavigationUser = () => {
       slug: item.slug,
     };
   }).slice(0, 5);
-  detailCourse.push({
+
+  courses.push({
     id: "more",
     title: "Show all ➡️",
     description: "Find more courses here",
     slug: "",
   });
-  // console.log([
-  //   ...detailCourse,
-  //   {
-  //     id: "more",
-  //     title: "more",
-  //     description: "more courses here",
-  //     slug: "",
-  //   },
-  // ]);
 
+  React.useEffect(() => {
+    setMyCourses(allMyCourse);
+  }, []);
   return (
     <>
       <div className="w-full  h-24 items-center justify-center shadow-md hidden lg:flex">
@@ -122,7 +133,7 @@ const NavigationUser = () => {
                   <NavigationMenuTrigger>Courses</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                      {detailCourse.map((component) => (
+                      {courses.map((component) => (
                         <ListItem
                           key={component.title}
                           title={component.title}
@@ -140,45 +151,33 @@ const NavigationUser = () => {
                     <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                       <li className="row-span-3">
                         <NavigationMenuLink asChild>
-                          <a
-                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                            href="/"
+                          <Link
+                            href="/my-courses"
+                            className="flex h-full w-full hover:bg-pink-600 hover:text-white select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                           >
-                            {/* <Icons.logo className="h-6 w-6" /> */}
-                            <div className="mb-2 mt-4 text-lg font-medium">
-                              shadcn/ui
+                            <Icon icon={"hugeicons:course"} fontSize={32} />
+                            <div className="mb-2 mt-4 text-lg font-medium line-clamp-2">
+                              Read more...
                             </div>
-                            <p className="text-sm leading-tight text-muted-foreground">
-                              Beautifully designed components built with Radix
-                              UI and Tailwind CSS.
+                            <p className="text-sm line-clamp-3 leading-tight text-muted-foreground">
+                              Show all my courses
                             </p>
-                          </a>
+                          </Link>
                         </NavigationMenuLink>
                       </li>
-                      <ListItem href="/docs" title="Introduction">
-                        Re-usable components built using Radix UI and Tailwind
-                        CSS.
-                      </ListItem>
-                      <ListItem href="/docs/installation" title="Installation">
-                        How to install dependencies and structure your app.
-                      </ListItem>
-                      <ListItem
-                        href="/docs/primitives/typography"
-                        title="Typography"
-                      >
-                        Styles for headings, paragraphs, lists...etc
-                      </ListItem>
+                      {myCourses.map((item, index) => {
+                        return (
+                          <ListItem
+                            key={index}
+                            href={`/my-courses/mastering-python-for-data-science/intermediate-python-programming/object-oriented-programming`}
+                            title={item.title}
+                          >
+                            {item.title}
+                          </ListItem>
+                        );
+                      })}
                     </ul>
                   </NavigationMenuContent>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link href="/docs" legacyBehavior passHref>
-                    <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
-                    >
-                      Support
-                    </NavigationMenuLink>
-                  </Link>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>

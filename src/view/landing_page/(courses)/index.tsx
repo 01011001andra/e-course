@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import BoxReveal from "@/components/BoxReveal";
 import Image from "next/image";
@@ -5,6 +7,10 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import { CourseCard, CourseType } from "./components";
 import SparklesText from "@/components/Sparkles";
 import ButtonGlobal from "@/components/Button";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { CommandDialogDemo } from "@/view/user/components/CommandDialogDemo";
+import { Input } from "@/components/ui/input";
 
 const coursesData = [
   {
@@ -122,18 +128,48 @@ const coursesData = [
 ];
 
 const Courses = () => {
+  const [open, setOpen] = React.useState(false);
+
+  const pathname = usePathname();
   return (
     <div className="container flex flex-col py-8 px-4 " id="courses">
       <div className="flex flex-col gap-8 pb-8">
-        <div className="flex justify-between w-full items-center">
+        <div className="flex flex-col md:flex-row gap-6 items-start md:items-center justify-between w-full ">
           <BoxReveal boxColor={"#db2777"} duration={0.5}>
             <SparklesText
-              text="Discover Course"
-              className="font-bold text-xl md:text-2xl xl:text-[40px] md:leading-[40px] lg:leading-[50px] text-start"
+              text={
+                pathname === "/all-course" ? "All Courses" : "Discover Course"
+              }
+              className="font-bold  text-xl md:text-2xl xl:text-[40px] md:leading-[40px] lg:leading-[50px] text-start"
             />
           </BoxReveal>
-          {/* <h2 className="font-bold text-xl lg:text-4xl">Discover Course</h2> */}
-          <ButtonGlobal>Show All</ButtonGlobal>
+          {/* <h2 className="font-bold text-xl md:text-4xl">Discover Course</h2> */}
+          {pathname === "/all-course" ? (
+            <>
+              <div className="w-full relative flex items-center justify-end md:max-w-xs">
+                <Icon
+                  icon={"material-symbols:search"}
+                  className="absolute left-4 md:left-12 h-5 w-5 text-gray-400"
+                />
+                <p className="text-sm text-gray-400 absolute right-5 ">
+                  Press{" "}
+                  <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+                    <span className="text-xs">⌘</span>K
+                  </kbd>
+                </p>
+                <Input
+                  className="rounded-full w-full md:w-72 md:max-w-xs pl-10 cursor-pointer hover:border-pink-600"
+                  placeholder="Search"
+                  onClick={() => setOpen(true)}
+                />
+              </div>
+              <CommandDialogDemo open={open} setOpen={setOpen} />
+            </>
+          ) : (
+            <Link href="/all-course">
+              <ButtonGlobal>Show All</ButtonGlobal>
+            </Link>
+          )}
         </div>
         <CourseType />
         <hr />

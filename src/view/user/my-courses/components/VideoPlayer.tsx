@@ -2,7 +2,7 @@
 
 import React from "react";
 import ReactPlayer from "react-player/lazy";
-import { Detail } from "../courses.type";
+import { Detail } from "../../courses/courses.type";
 
 const VideoPlayer = ({ course }: { course: Detail }) => {
   const [domLoaded, setDomLoaded] = React.useState(false);

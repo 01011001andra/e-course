@@ -11,7 +11,6 @@ const LandingPageView = () => {
   return (
     <div className="min-h-screen h-full">
       <Navigation />
-
       <Hero />
       <AboutUs />
       <Courses />

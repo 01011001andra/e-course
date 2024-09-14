@@ -5,10 +5,10 @@ import VideoPlayer from "./components/VideoPlayer";
 import AccordionList from "./components/AccordionList";
 import TabsCommentAndFile from "./components/TabsCommentAndFile";
 import TabsOviewAndInstructor from "./components/TabsOviewAndInstructor";
-import CourseDetail from "./components/CourseDetail";
+import CourseDetail from "../courses/components/CourseDetail";
 import { DetailCourse } from "@/utils/constant";
 import { notFound } from "next/navigation";
-import { Detail, Root, Stages } from "./courses.type";
+import { Detail, Root, Stages } from "../courses/courses.type";
 
 interface Props {
   params: {

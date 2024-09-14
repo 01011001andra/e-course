@@ -2,11 +2,11 @@
 
 import React from "react";
 import { DetailCourse } from "@/utils/constant";
-import CourseCard from "./components/CourseCard";
-import { Root } from "./courses.type";
 import { Input } from "@/components/ui/input";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { Search } from "lucide-react";
+import { Root } from "./myCourses.type";
+import CourseCard from "./components/CourseCard";
 
 interface Props {
   params: {
