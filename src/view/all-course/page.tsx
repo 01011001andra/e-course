@@ -4,13 +4,13 @@ import React from "react";
 import BoxReveal from "@/components/BoxReveal";
 import Image from "next/image";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { CourseCard, CourseType } from "./components";
 import SparklesText from "@/components/Sparkles";
 import ButtonGlobal from "@/components/Button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { CommandDialogDemo } from "@/view/user/components/CommandDialogDemo";
 import { Input } from "@/components/ui/input";
+import { CourseCard, CourseType } from "./components";
 
 const coursesData = [
   {
@@ -127,7 +127,7 @@ const coursesData = [
   },
 ];
 
-const Courses = () => {
+const AllCoursePage = () => {
   const [open, setOpen] = React.useState(false);
 
   const pathname = usePathname();
@@ -189,4 +189,4 @@ const Courses = () => {
   );
 };
 
-export default Courses;
+export default AllCoursePage;

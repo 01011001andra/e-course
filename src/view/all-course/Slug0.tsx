@@ -1,15 +1,15 @@
 import { DetailCourse } from "@/utils/constant";
 import React from "react";
-import { Root } from "./courses.type";
 import {
   afterDiscount,
   numberToRupiah,
   secondToTime,
   secondToTimeText,
 } from "@/utils/helper";
-import VideoPlayer from "../components/VideoPlayer";
 import { notFound } from "next/navigation";
 import PulsatingButton from "@/components/PulsatingButton";
+import { Root } from "./courses.type";
+import VideoPlayer from "./components/VideoPlayer";
 
 interface Props {
   params: {
@@ -23,7 +23,7 @@ const Slug0: React.FC<Props> = ({ params }) => {
   ) as Root;
   if (!course) return notFound();
   return (
-    <div className="prose xl:prose-xl mx-auto relative">
+    <div className="prose xl:prose-xl mx-auto relative p-4">
       {/* <PulsatingButton
         className="fixed bottom-7 z-50 left-7 bg-pink-600 border hover:bg-pink-700 transition-all duration-500"
         pulseColor="#dc497b"

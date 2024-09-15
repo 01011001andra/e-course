@@ -1,8 +1,8 @@
-import Courses from "@/view/landing_page/(courses)";
+import AllCoursePage from "@/view/all-course/page";
 import React from "react";
 
 const AllCourse = () => {
-  return <Courses />;
+  return <AllCoursePage />;
 };
 
 export default AllCourse;

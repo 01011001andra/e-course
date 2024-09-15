@@ -35,7 +35,9 @@ const NavigationActive = ({ onClose }: { onClose: () => void }) => {
               </Link>
             );
           })}
-          <Auth isMobile />
+          <div className="w-full mt-4">
+            <Auth isMobile />
+          </div>
           <Curve />
         </motion.div>
       </div>

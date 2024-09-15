@@ -37,7 +37,7 @@ const StaticNav = () => {
             </Link>
           );
         })}
-        <div className="flex gap-1">
+        <div className="flex gap-1 ">
           <Auth />
           {/* <button
             className={`w-full px-4 py-3 text-center transition-all duration-500 font-medium text-pink-600 hover:text-pink-400 border-black`}
