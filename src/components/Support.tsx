@@ -19,7 +19,7 @@ const Support = () => {
   }
   if (open) {
     component = (
-      <div className="fixed bottom-10 z-50 rounded-2xl shadow-2xl right-1/2 md:right-10 max-w-sm w-full transform translate-x-1/2 md:translate-x-0 md:transform-none">
+      <div className="fixed bottom-10 z-50 rounded-2xlthe shadow-2xl right-1/2 md:right-10 max-w-sm w-full transform translate-x-1/2 md:translate-x-0 md:transform-none">
         <div className="bg-pink-600 p-4 rounded-t-2xl flex justify-between">
           <span className="text-white font-bold">Support</span>
           <Icon

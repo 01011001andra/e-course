@@ -1,7 +1,8 @@
+import ArticlesPage from "@/view/articles/page";
 import React from "react";
 
 const Articles = () => {
-  return <div>Articles</div>;
+  return <ArticlesPage />;
 };
 
 export default Articles;
