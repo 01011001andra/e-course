@@ -55,7 +55,7 @@ const Support = () => {
             </label>
             <textarea className="border p-2 rounded-lg"></textarea>
           </div>
-          <button className="bg-pink-600 hover:bg-pink-700 transition-all duration-300 text-white font-medium rounded-2xl p-2">
+          <button className="bg-pink-600 mt-3 hover:bg-pink-700 transition-all duration-300 text-white font-medium rounded-lg p-2">
             Submit
           </button>
         </div>

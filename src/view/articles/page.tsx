@@ -13,48 +13,50 @@ import Card from "./components/Card";
 
 const ArticlesPage = () => {
   return (
-    <div className="container px-4 xl:px-0 py-8 flex flex-col gap-2">
-      <h1 className="text-3xl font-black text-pink-600">Articles</h1>
-      <p>Here is my articles</p>
-      <Input type="text" placeholder="Search..." className="lg:h-12" />
-      <div className="flex flex-wrap gap-2">
-        <span>Choose topic: </span>
-        <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
-          nextjs
-        </span>
-        <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
-          nextjs
-        </span>
-        <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
-          nextjs
-        </span>
-        <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
-          nextjs
-        </span>
-        <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
-          nextjs
-        </span>
-        <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
-          nextjs
-        </span>
-        <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
-          nextjs
-        </span>
-        <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
-          nextjs
-        </span>
-        <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
-          nextjs
-        </span>
-        <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
-          nextjs
-        </span>
-        <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
-          nextjs
-        </span>
-        <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
-          nextjs
-        </span>
+    <div className="container px-4 xl:px-0 py-8 flex flex-col gap-4">
+      <div className="flex flex-col gap-2">
+        <h1 className="text-3xl font-black text-pink-600">Articles</h1>
+        <p>Here is my articles</p>
+        <Input type="text" placeholder="Search..." className="lg:h-12" />
+        <div className="flex flex-wrap gap-2">
+          <span>Choose topic: </span>
+          <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
+            nextjs
+          </span>
+          <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
+            nextjs
+          </span>
+          <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
+            nextjs
+          </span>
+          <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
+            nextjs
+          </span>
+          <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
+            nextjs
+          </span>
+          <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
+            nextjs
+          </span>
+          <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
+            nextjs
+          </span>
+          <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
+            nextjs
+          </span>
+          <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
+            nextjs
+          </span>
+          <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
+            nextjs
+          </span>
+          <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
+            nextjs
+          </span>
+          <span className="bg-pink-600 text-gray-100 cursor-pointer text-sm font-medium transition-colors duration-200 hover:text-white py-0.5 px-1.5 rounded-lg">
+            nextjs
+          </span>
+        </div>
       </div>
       <div className="w-full flex justify-end">
         <Select defaultValue="apple">

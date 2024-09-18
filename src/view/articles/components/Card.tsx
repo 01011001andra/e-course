@@ -9,7 +9,7 @@ const Card = () => {
   return (
     <Link
       href={"/articles/gradient-border-is-unexpectedly-hard"}
-      className="w-full hover:scale-[103%] transition-all duration-300 h-full border rounded-lg"
+      className="w-full hover:scale-[103%] active:scale-[100%] transition-all duration-300 h-full border rounded-lg"
     >
       <AspectRatio ratio={16 / 6} className="relative">
         <Image
